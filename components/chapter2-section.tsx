@@ -331,11 +331,11 @@ function EconomicCycleSection() {
 
   return (
     <div ref={ref} className="relative min-h-screen flex items-center">
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 overflow-hidden">
         <img
           src="/gold-coins-flowing-in-circular-motion--oil-paintin.jpg"
           alt="Economic cycle"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105"
         />
         <div className="absolute inset-0 bg-black/70" />
       </div>
@@ -403,7 +403,7 @@ function EndingSection() {
   const vignette = useTransform(scrollYProgress, [0.5, 1], [0, 0.8])
 
   return (
-    <div ref={ref} className="relative min-h-screen flex items-center justify-center">
+    <div ref={ref} className="relative py-32 flex items-center justify-center">
       <div className="absolute inset-0 bg-black" />
       <motion.div
         style={{ opacity: vignette }}
