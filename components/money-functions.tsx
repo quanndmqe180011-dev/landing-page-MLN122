@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, useInView } from "framer-motion"
-import { useRef, useState } from "react"
+import { useRef } from "react"
 
 const functions = [
   {
@@ -34,55 +34,28 @@ const functions = [
 export default function MoneyFunctions() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.3 })
-  const [flipped, setFlipped] = useState<number[]>([])
-
-  const toggleFlip = (index: number) => {
-    setFlipped((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
-  }
 
   return (
     <div ref={ref} className="space-y-8">
-      <h3 className="font-mono text-3xl font-bold text-[#FFC000] text-center">5 Chức năng của Tiền tệ</h3>
+      <h3 className="font-mono text-3xl font-bold text-[#d4af37] text-center">5 Chức năng của Tiền tệ</h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {functions.map((func, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            initial={{ opacity: 0, scale: 0.8, y: 30 }}
+            animate={isInView ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.8, y: 30 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative h-64 cursor-pointer"
-            style={{ perspective: "1000px" }}
-            onClick={() => toggleFlip(i)}
+            className="relative p-6 rounded-lg border-2 border-[#3d5a80] bg-white/70 hover:bg-[#3d5a80]/10 hover:border-[#d4af37] transition-all duration-300 hover:shadow-lg"
           >
-            <motion.div
-              className="relative w-full h-full"
-              animate={{ rotateY: flipped.includes(i) ? 180 : 0 }}
-              transition={{ duration: 0.6 }}
-              style={{ transformStyle: "preserve-3d" }}
-            >
-              {/* Front */}
-              <div
-                className="absolute inset-0 flex flex-col items-center justify-center p-6 rounded-lg border-2 border-[#00FFFF] bg-[#00FFFF]/10"
-                style={{ backfaceVisibility: "hidden" }}
-              >
-                <div className="text-5xl mb-4">{func.icon}</div>
-                <h4 className="font-mono text-lg font-bold text-[#00FFFF] text-center">{func.title}</h4>
-              </div>
-
-              {/* Back */}
-              <div
-                className="absolute inset-0 flex items-center justify-center p-6 rounded-lg border-2 border-[#FFC000] bg-[#FFC000]/10"
-                style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-              >
-                <p className="text-sm text-gray-300 text-center leading-relaxed">{func.description}</p>
-              </div>
-            </motion.div>
+            <div className="flex flex-col items-center text-center space-y-4">
+              <div className="text-5xl">{func.icon}</div>
+              <h4 className="font-mono text-lg font-bold text-[#3d5a80]">{func.title}</h4>
+              <p className="text-sm text-gray-700 leading-relaxed">{func.description}</p>
+            </div>
           </motion.div>
         ))}
       </div>
-
-      <p className="text-center text-gray-400 text-sm">Nhấp vào mỗi thẻ để xem chi tiết</p>
     </div>
   )
 }

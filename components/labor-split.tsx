@@ -16,8 +16,18 @@ export default function LaborSplit() {
         className="relative p-8 rounded-lg border-2 border-[#00FFFF] bg-[#00FFFF]/5"
       >
         <motion.div
-          animate={isInView ? { boxShadow: "0 0 30px rgba(0, 255, 255, 0.5)" } : {}}
-          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+          animate={
+            isInView
+              ? {
+                  boxShadow: [
+                    "0 0 20px rgba(0, 255, 255, 0.3)",
+                    "0 0 40px rgba(0, 255, 255, 0.6)",
+                    "0 0 20px rgba(0, 255, 255, 0.3)",
+                  ],
+                }
+              : {}
+          }
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           className="absolute inset-0 rounded-lg"
         />
         <h3 className="font-mono text-2xl font-bold text-[#00FFFF] mb-4">Lao động cụ thể</h3>
@@ -34,8 +44,18 @@ export default function LaborSplit() {
         className="relative p-8 rounded-lg border-2 border-[#FFC000] bg-[#FFC000]/5"
       >
         <motion.div
-          animate={isInView ? { boxShadow: "0 0 30px rgba(255, 192, 0, 0.5)" } : {}}
-          transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
+          animate={
+            isInView
+              ? {
+                  boxShadow: [
+                    "0 0 20px rgba(255, 192, 0, 0.3)",
+                    "0 0 40px rgba(255, 192, 0, 0.6)",
+                    "0 0 20px rgba(255, 192, 0, 0.3)",
+                  ],
+                }
+              : {}
+          }
+          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           className="absolute inset-0 rounded-lg"
         />
         <h3 className="font-mono text-2xl font-bold text-[#FFC000] mb-4">Lao động trừu tượng</h3>

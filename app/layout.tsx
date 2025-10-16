@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Space_Mono, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import SmoothScrollWrapper from "@/components/smooth-scroll-wrapper"
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="vi" className="dark">
       <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased`}>
-        {children}
+        <SmoothScrollWrapper>{children}</SmoothScrollWrapper>
         <Analytics />
       </body>
     </html>

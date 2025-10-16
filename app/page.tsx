@@ -4,6 +4,10 @@ import EconomicActors from "@/components/economic-actors"
 import ScrollProgress from "@/components/scroll-progress"
 import Navigation from "@/components/navigation"
 import BackToTop from "@/components/back-to-top"
+import Conclusion from "@/components/conclusion"
+import MindMapTimeline from "@/components/mind-map-timeline"
+import EconomicSystemMotion from "@/components/economic-system-motion"
+import ChapterTransition from "@/components/chapter-transition"
 
 export default function Home() {
   return (
@@ -11,8 +15,12 @@ export default function Home() {
       <ScrollProgress />
       <Navigation />
       <Hero />
+      <MindMapTimeline />
       <Chapter2Section />
+      <ChapterTransition />
       <EconomicActors />
+      <EconomicSystemMotion />
+      <Conclusion />
       <BackToTop />
     </main>
   )

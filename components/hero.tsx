@@ -22,9 +22,8 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* 3D Grid Background */}
-      <motion.div className="absolute inset-0 opacity-20" style={{ y }}>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#00FFFF_1px,transparent_1px),linear-gradient(to_bottom,#00FFFF_1px,transparent_1px)] bg-[size:4rem_4rem] [transform:perspective(1000px)_rotateX(60deg)] [transform-origin:center_top]" />
+      <motion.div className="absolute inset-0 opacity-10" style={{ y }}>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#c9a961_1px,transparent_1px),linear-gradient(to_bottom,#c9a961_1px,transparent_1px)] bg-[size:4rem_4rem] [transform:perspective(1000px)_rotateX(60deg)] [transform-origin:center_top]" />
       </motion.div>
 
       <motion.div className="relative z-10 max-w-6xl mx-auto px-4 text-center" style={{ opacity }}>
@@ -37,7 +36,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="inline-block mr-3 md:mr-4"
               style={{
-                color: word.includes("MÁC") || word.includes("LÊNIN") ? "#00FFFF" : "white",
+                color: word.includes("MÁC") || word.includes("LÊNIN") ? "#2c4a7c" : "#1a1a1a",
               }}
             >
               {word}
@@ -49,7 +48,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
+          className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"
         >
           Từ nguyên thủy đến hiện đại: Khám phá các quy luật kinh tế
         </motion.p>
@@ -60,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 2 }}
           className="mt-12"
         >
-          <div className="inline-block px-6 py-3 border border-[#00FFFF] rounded-lg text-[#00FFFF] font-mono animate-pulse">
+          <div className="inline-block px-6 py-3 border-2 border-[#c9a961] rounded-lg text-[#c9a961] font-mono font-semibold animate-pulse">
             Cuộn xuống để khám phá ↓
           </div>
         </motion.div>

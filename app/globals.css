@@ -3,41 +3,41 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Custom color tokens for Marxist Economics theme */
+/* Lighter, brighter beige theme for better readability */
 :root {
-  --background: #1a1a1a;
-  --foreground: #ffffff;
-  --card: #1a1a1a;
-  --card-foreground: #ffffff;
-  --popover: #1a1a1a;
-  --popover-foreground: #ffffff;
-  --primary: #00ffff;
-  --primary-foreground: #000000;
-  --secondary: #ffc000;
-  --secondary-foreground: #000000;
-  --muted: #333333;
-  --muted-foreground: #999999;
-  --accent: #00ffff;
-  --accent-foreground: #000000;
+  --background: #faf8f3;
+  --foreground: #2d2d2d;
+  --card: #f5f0e8;
+  --card-foreground: #2d2d2d;
+  --popover: #ffffff;
+  --popover-foreground: #2d2d2d;
+  --primary: #d4af37;
+  --primary-foreground: #1a1a1a;
+  --secondary: #3d5a80;
+  --secondary-foreground: #ffffff;
+  --muted: #e8dcc8;
+  --muted-foreground: #6b6b6b;
+  --accent: #d4af37;
+  --accent-foreground: #1a1a1a;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #333333;
-  --input: #333333;
-  --ring: #00ffff;
-  --chart-1: #00ffff;
-  --chart-2: #ffc000;
-  --chart-3: #ff6b6b;
-  --chart-4: #4ecdc4;
-  --chart-5: #95e1d3;
+  --border: #d4c5ad;
+  --input: #f5f0e8;
+  --ring: #d4af37;
+  --chart-1: #d4af37;
+  --chart-2: #3d5a80;
+  --chart-3: #98844c;
+  --chart-4: #b8956a;
+  --chart-5: #e8dcc8;
   --radius: 0.625rem;
-  --sidebar: #1a1a1a;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #00ffff;
-  --sidebar-primary-foreground: #000000;
-  --sidebar-accent: #333333;
-  --sidebar-accent-foreground: #ffffff;
-  --sidebar-border: #333333;
-  --sidebar-ring: #00ffff;
+  --sidebar: #f5f0e8;
+  --sidebar-foreground: #2d2d2d;
+  --sidebar-primary: #d4af37;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #e8dcc8;
+  --sidebar-accent-foreground: #2d2d2d;
+  --sidebar-border: #d4c5ad;
+  --sidebar-ring: #d4af37;
 }
 
 @theme inline {
@@ -88,10 +88,31 @@
   }
   body {
     @apply bg-background text-foreground;
+    will-change: transform;
   }
 
-  /* Smooth scrolling for the entire page */
+  /* Enhanced smooth scrolling with slower, more cinematic feel */
   html {
-    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    /* Disable native smooth scroll to let JS handle it */
+    scroll-behavior: auto;
+  }
+
+  /* Custom scrollbar styling for smoother visual experience */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b8956a;
   }
 }
