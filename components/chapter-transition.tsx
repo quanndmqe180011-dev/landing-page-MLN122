@@ -10,33 +10,30 @@ export default function ChapterTransition() {
     offset: ["start end", "end start"],
   })
 
-  // Fade out Chapter 2 ending (0-0.15)
-  const fadeOutOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0])
+  // Fade out Chapter 2 ending (0-0.2)
+  const fadeOutOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
-  // Golden particles animation (0.1-0.3)
-  const particlesOpacity = useTransform(scrollYProgress, [0.1, 0.25, 0.4], [0, 1, 0])
+  // Golden particles animation (0.15-0.5)
+  const particlesOpacity = useTransform(scrollYProgress, [0.15, 0.3, 0.5], [0, 1, 0.3])
 
-  // Background gradient transition (0.2-0.5)
-  const bgGradient = useTransform(scrollYProgress, [0.2, 0.5], ["rgb(26, 26, 26)", "rgb(10, 20, 40)"])
+  // Background gradient transition (0.2-0.6)
+  const bgGradient = useTransform(scrollYProgress, [0.2, 0.6], ["rgb(26, 26, 26)", "rgb(10, 20, 40)"])
 
-  // Golden lines network (0.3-0.6)
-  const linesOpacity = useTransform(scrollYProgress, [0.3, 0.45, 0.65], [0, 1, 0])
+  // Rotating mandala (0.3-0.7)
+  const mandalaRotate = useTransform(scrollYProgress, [0.3, 0.7], [0, 360])
+  const mandalaScale = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [0.5, 1.2, 0.8])
+  const mandalaOpacity = useTransform(scrollYProgress, [0.3, 0.45, 0.7], [0, 1, 0.5])
 
-  // Rotating mandala (0.4-0.7)
-  const mandalaRotate = useTransform(scrollYProgress, [0.4, 0.7], [0, 360])
-  const mandalaScale = useTransform(scrollYProgress, [0.4, 0.55, 0.7], [0.5, 1.2, 0])
-  const mandalaOpacity = useTransform(scrollYProgress, [0.4, 0.5, 0.7], [0, 1, 0])
+  // Transition text (0.5-0.8)
+  const transitionTextOpacity = useTransform(scrollYProgress, [0.5, 0.6, 0.75, 0.85], [0, 1, 1, 0])
 
-  // Transition text (0.5-0.75)
-  const transitionTextOpacity = useTransform(scrollYProgress, [0.5, 0.6, 0.7, 0.8], [0, 1, 1, 0])
-
-  // Chapter 3 reveal (0.75-1)
-  const chapter3Opacity = useTransform(scrollYProgress, [0.75, 0.9], [0, 1])
-  const chapter3Scale = useTransform(scrollYProgress, [0.75, 0.9], [0.95, 1])
-  const chapter3Y = useTransform(scrollYProgress, [0.75, 0.9], [50, 0])
+  // Chapter 3 reveal (0.7-1)
+  const chapter3Opacity = useTransform(scrollYProgress, [0.7, 0.9], [0, 1])
+  const chapter3Scale = useTransform(scrollYProgress, [0.7, 0.9], [0.95, 1])
+  const chapter3Y = useTransform(scrollYProgress, [0.7, 0.9], [50, 0])
 
   return (
-    <div ref={containerRef} className="relative h-[200vh] overflow-hidden">
+    <div ref={containerRef} className="relative h-[150vh] overflow-hidden">
       {/* Chapter 2 Fade Out with Pulsing Glow */}
       <motion.div
         style={{ opacity: fadeOutOpacity }}
@@ -86,87 +83,6 @@ export default function ChapterTransition() {
 
       {/* Background Gradient Transition */}
       <motion.div style={{ backgroundColor: bgGradient }} className="fixed inset-0 -z-10" />
-
-      {/* Golden Network Lines */}
-      <motion.div style={{ opacity: linesOpacity }} className="fixed inset-0 pointer-events-none">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#FFC000" stopOpacity="0" />
-              <stop offset="50%" stopColor="#FFC000" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#FFC000" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-          {/* Horizontal lines */}
-          <motion.line
-            x1="0"
-            y1="30%"
-            x2="100%"
-            y2="30%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
-          />
-          <motion.line
-            x1="0"
-            y1="50%"
-            x2="100%"
-            y2="50%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.3, ease: "easeInOut" }}
-          />
-          <motion.line
-            x1="0"
-            y1="70%"
-            x2="100%"
-            y2="70%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.6, ease: "easeInOut" }}
-          />
-          {/* Vertical lines */}
-          <motion.line
-            x1="25%"
-            y1="0"
-            x2="25%"
-            y2="100%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.2, ease: "easeInOut" }}
-          />
-          <motion.line
-            x1="50%"
-            y1="0"
-            x2="50%"
-            y2="100%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
-          />
-          <motion.line
-            x1="75%"
-            y1="0"
-            x2="75%"
-            y2="100%"
-            stroke="url(#lineGradient)"
-            strokeWidth="1"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 2, delay: 0.8, ease: "easeInOut" }}
-          />
-        </svg>
-      </motion.div>
 
       {/* Rotating Mandala/Dialectical Circle */}
       <motion.div
