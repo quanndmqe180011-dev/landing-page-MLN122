@@ -34,7 +34,7 @@ export default function ScrollProgress() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const sectionLabels = ["Giới thiệu", "Hành trình", "Chương 2", "Chủ thể", "Kết luận"]
+  const sectionLabels = ["Giới thiệu", "Hành trình", , "Chủ thể", "Kết luận"]
 
   return (
     <div className="fixed top-1/2 -translate-y-1/2 right-8 z-50 flex flex-col items-end gap-4">

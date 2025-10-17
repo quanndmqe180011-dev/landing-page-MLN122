@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 
 const navItems = [
   { id: "hero", label: "Trang chủ" },
-  { id: "chapter2", label: "Chương 2" },
   { id: "actors", label: "Chủ thể kinh tế" },
   { id: "conclusion", label: "Kết luận" },
 ]
