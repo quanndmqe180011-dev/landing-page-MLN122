@@ -419,10 +419,7 @@ function EndingSection() {
           href="#hero"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-3 px-8 py-4 bg-[#d4af37] text-black font-mono text-lg rounded-lg hover:bg-[#c9a961] transition-colors"
         >
-          <ArrowLeft className="w-5 h-5" />
-          Về Trang Chủ
         </motion.a>
       </motion.div>
     </div>

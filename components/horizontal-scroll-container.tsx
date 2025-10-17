@@ -49,27 +49,29 @@ export default function HorizontalScrollContainer({ frames }: HorizontalScrollCo
       <motion.div className="fixed inset-0 -z-10" style={{ backgroundImage: bgGradient }} />
 
       {/* Particle background */}
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-yellow-400 rounded-full opacity-30"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              y: [0, -window.innerHeight],
-              opacity: [0.3, 0.1, 0],
-            }}
-            transition={{
-              duration: 8 + Math.random() * 4,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          />
-        ))}
-      </div>
+<div className="fixed inset-0 -z-10 overflow-hidden">
+  {[...Array(20)].map((_, i) => {
+    const x = typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1000
+    const y = typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 1000
+
+    return (
+      <motion.div
+        key={i}
+        className="absolute w-1 h-1 bg-yellow-400 rounded-full opacity-30"
+        initial={{ x, y }}
+        animate={{
+          y: [0, -1000],
+          opacity: [0.3, 0.1, 0],
+        }}
+        transition={{
+          duration: 8 + Math.random() * 4,
+          repeat: Number.POSITIVE_INFINITY,
+          ease: "linear",
+        }}
+      />
+    )
+  })}
+</div>
 
       {/* Horizontal scroll container */}
       <div className="fixed inset-0 overflow-hidden">

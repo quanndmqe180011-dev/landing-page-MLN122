@@ -94,7 +94,7 @@ const timelineData: TimelineNode[] = [
     icon: <Factory className="w-6 h-6" />,
     tags: ["Chu trình", "Vận động", "Tích lũy"],
     color: "#00FFFF",
-    imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7-XmNnm8VZ2FAON1dtrUGNulxpBZpkza.jpg",
+    imageUrl: "11.jpg",
   },
   {
     year: "Kết luận",
