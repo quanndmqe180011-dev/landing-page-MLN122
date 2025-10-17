@@ -1,3 +1,4 @@
+// market-law-frame.tsx
 "use client"
 
 import { motion, useTransform, type MotionValue } from "framer-motion"
@@ -137,6 +138,7 @@ export default function MarketLawFrame({ frame, index, totalFrames, scrollProgre
                 transition={{
                   duration: 3,
                   repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
                 }}
               />
             </motion.div>

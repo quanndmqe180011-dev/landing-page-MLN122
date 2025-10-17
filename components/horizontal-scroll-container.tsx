@@ -1,6 +1,7 @@
+// HorizontalScrollContainer.tsx
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react" // ĐÃ THÊM useEffect
 import { motion, useScroll, useTransform } from "framer-motion"
 import MarketLawFrame from "./market-law-frame"
 
@@ -17,10 +18,34 @@ interface HorizontalScrollContainerProps {
   frames: Frame[]
 }
 
+// Định nghĩa kiểu cho vị trí hạt
+interface Particle {
+    x: number
+    y: number
+}
+
 export default function HorizontalScrollContainer({ frames }: HorizontalScrollContainerProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
+  // SỬA LỖI: State để lưu trữ các vị trí hạt đã tính toán an toàn
+  const [particles, setParticles] = useState<Particle[]>([]) 
+  const PARTICLE_COUNT = 20
+  
+  // SỬA LỖI: Tính toán vị trí hạt trong useEffect (chỉ chạy trên client)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+        const newParticles: Particle[] = []
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            newParticles.push({
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+            })
+        }
+        setParticles(newParticles)
+    }
+  }, []) // [] đảm bảo chỉ chạy một lần sau khi mount
+    
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -49,29 +74,28 @@ export default function HorizontalScrollContainer({ frames }: HorizontalScrollCo
       <motion.div className="fixed inset-0 -z-10" style={{ backgroundImage: bgGradient }} />
 
       {/* Particle background */}
-<div className="fixed inset-0 -z-10 overflow-hidden">
-  {[...Array(20)].map((_, i) => {
-    const x = typeof window !== "undefined" ? Math.random() * window.innerWidth : Math.random() * 1000
-    const y = typeof window !== "undefined" ? Math.random() * window.innerHeight : Math.random() * 1000
-
-    return (
-      <motion.div
-        key={i}
-        className="absolute w-1 h-1 bg-yellow-400 rounded-full opacity-30"
-        initial={{ x, y }}
-        animate={{
-          y: [0, -1000],
-          opacity: [0.3, 0.1, 0],
-        }}
-        transition={{
-          duration: 8 + Math.random() * 4,
-          repeat: Number.POSITIVE_INFINITY,
-          ease: "linear",
-        }}
-      />
-    )
-  })}
-</div>
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        {/* Chỉ render particles khi chúng đã được tính toán an toàn trên client */}
+        {particles.map((particle, i) => {
+          return (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-yellow-400 rounded-full opacity-30"
+              // Sử dụng vị trí đã tính toán từ state
+              initial={{ x: particle.x, y: particle.y }} 
+              animate={{
+                y: [particle.y, particle.y - 1500], // Cho các hạt bay lên
+                opacity: [0.3, 0.1, 0],
+              }}
+              transition={{
+                duration: 8 + Math.random() * 4,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+            />
+          )
+        })}
+      </div>
 
       {/* Horizontal scroll container */}
       <div className="fixed inset-0 overflow-hidden">
@@ -97,7 +121,9 @@ export default function HorizontalScrollContainer({ frames }: HorizontalScrollCo
       {/* Progress indicator */}
       <div className="fixed bottom-8 right-8 text-white font-cinzel text-sm z-50">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
-          {Math.round(scrollProgress * 100)}%
+          {/* LƯU Ý: scrollProgress * 100 phải được xử lý cẩn thận nếu cần, nhưng thường an toàn */}
+          {/* Tôi sẽ giữ nguyên logic này, vì nó không truy cập window */}
+          {Math.round((scrollYProgress.get() || 0) * 100)}% 
         </motion.div>
       </div>
 
