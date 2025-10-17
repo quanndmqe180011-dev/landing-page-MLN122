@@ -399,20 +399,47 @@ function EndingSection() {
     offset: ["start end", "end start"],
   })
 
-  const textOpacity = useTransform(scrollYProgress, [0.2, 0.6], [0, 1])
-  const vignette = useTransform(scrollYProgress, [0.5, 1], [0, 0.8])
+  const text = "Hiểu được bản chất của giá trị và sản xuất là bước đầu tiên để làm chủ động lực của nền kinh tế hiện đại."
+  const words = text.split(" ")
+  const totalWords = words.length
+
+  const vignette = useTransform(scrollYProgress, [0.3, 0.8], [0, 0.8])
 
   return (
-    <div ref={ref} className="relative py-32 flex items-center justify-center">
+    <div ref={ref} className="relative py-20 flex items-center justify-center min-h-screen">
       <div className="absolute inset-0 bg-black" />
       <motion.div
         style={{ opacity: vignette }}
         className="absolute inset-0 bg-gradient-radial from-transparent via-black/50 to-black"
       />
 
-      <motion.div style={{ opacity: textOpacity }} className="relative z-10 text-center px-8 max-w-4xl">
-        <p className="text-2xl md:text-4xl text-[#e8dcc8] leading-relaxed mb-12 italic">
-          "Hiểu được bản chất của giá trị và sản xuất là bước đầu tiên để làm chủ động lực của nền kinh tế hiện đại."
+      <motion.div style={{ opacity: useTransform(scrollYProgress, [0.1, 0.3], [0, 1]) }} className="relative z-10 text-center px-8 max-w-4xl">
+        <p className="text-3xl md:text-5xl text-[#e8dcc8] leading-relaxed mb-12 italic">
+          "
+          {words.map((word, i) => {
+            const startProgress = 0.15 + (i / totalWords) * 0.5
+            const endProgress = 0.15 + ((i + 1) / totalWords) * 0.5
+
+            const wordOpacity = useTransform(
+              scrollYProgress,
+              [startProgress, endProgress],
+              [0, 1]
+            )
+
+            const isLineBreak = (i + 1) % 6 === 0 && i !== totalWords - 1
+
+            return (
+              <motion.span
+                key={i}
+                style={{ opacity: wordOpacity }}
+                className="mr-2"
+              >
+                {word}
+                {isLineBreak && <br />}
+              </motion.span>
+            )
+          })}
+          "
         </p>
 
         <motion.a
