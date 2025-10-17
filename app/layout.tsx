@@ -1,19 +1,26 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Space_Mono, Inter } from "next/font/google"
+import { Be_Vietnam_Pro, Space_Mono, Cinzel } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import SmoothScrollWrapper from "@/components/smooth-scroll-wrapper"
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext", "vietnamese"],
   variable: "--font-mono",
 })
 
-const inter = Inter({
-  subsets: ["latin"],
+const beVietnamPro = Be_Vietnam_Pro({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin", "vietnamese"],
   variable: "--font-sans",
+})
+
+const cinzel = Cinzel({
+  weight: ["400", "600", "700", "900"],
+  subsets: ["latin"],
+  variable: "--font-cinzel",
 })
 
 export const metadata: Metadata = {
@@ -29,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" className="dark">
-      <body className={`${inter.variable} ${spaceMono.variable} font-sans antialiased`}>
+      <body className={`${beVietnamPro.variable} ${spaceMono.variable} ${cinzel.variable} font-sans antialiased`}>
         <SmoothScrollWrapper>{children}</SmoothScrollWrapper>
         <Analytics />
       </body>

@@ -5,45 +5,48 @@
 
 /* Lighter, brighter beige theme for better readability */
 :root {
-  --background: #faf8f3;
-  --foreground: #2d2d2d;
-  --card: #f5f0e8;
-  --card-foreground: #2d2d2d;
-  --popover: #ffffff;
-  --popover-foreground: #2d2d2d;
-  --primary: #d4af37;
-  --primary-foreground: #1a1a1a;
+  /* changed background to black and foreground to #FFF0B4 */
+  --background: #000000;
+  --foreground: #fff0b4;
+  --card: #1a1a1a;
+  --card-foreground: #fff0b4;
+  --popover: #1a1a1a;
+  --popover-foreground: #fff0b4;
+  --primary: #fff0b4;
+  --primary-foreground: #000000;
   --secondary: #3d5a80;
-  --secondary-foreground: #ffffff;
-  --muted: #e8dcc8;
-  --muted-foreground: #6b6b6b;
-  --accent: #d4af37;
-  --accent-foreground: #1a1a1a;
+  --secondary-foreground: #fff0b4;
+  --muted: #666666;
+  --muted-foreground: #fff0b4;
+  --accent: #fff0b4;
+  --accent-foreground: #000000;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: #d4c5ad;
-  --input: #f5f0e8;
-  --ring: #d4af37;
-  --chart-1: #d4af37;
+  --border: #333333;
+  --input: #1a1a1a;
+  --ring: #fff0b4;
+  --chart-1: #fff0b4;
   --chart-2: #3d5a80;
   --chart-3: #98844c;
   --chart-4: #b8956a;
-  --chart-5: #e8dcc8;
+  --chart-5: #666666;
   --radius: 0.625rem;
-  --sidebar: #f5f0e8;
-  --sidebar-foreground: #2d2d2d;
-  --sidebar-primary: #d4af37;
-  --sidebar-primary-foreground: #1a1a1a;
-  --sidebar-accent: #e8dcc8;
-  --sidebar-accent-foreground: #2d2d2d;
-  --sidebar-border: #d4c5ad;
-  --sidebar-ring: #d4af37;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #fff0b4;
+  --sidebar-primary: #fff0b4;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #333333;
+  --sidebar-accent-foreground: #fff0b4;
+  --sidebar-border: #333333;
+  --sidebar-ring: #fff0b4;
 }
 
 @theme inline {
-  /* Added Space Mono and Inter fonts */
-  --font-sans: "Inter", "Geist", "Geist Fallback", system-ui, -apple-system, sans-serif;
-  --font-mono: "Space Mono", "Geist Mono", "Geist Mono Fallback", monospace;
+  /* Updated font stack to use Be Vietnam Pro for proper Vietnamese rendering */
+  --font-sans: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+  --font-mono: "Space Mono", monospace;
+  /* Added Cinzel font variable for cinematic typography */
+  --font-cinzel: "Cinzel", serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);

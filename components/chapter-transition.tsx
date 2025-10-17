@@ -51,7 +51,7 @@ export default function ChapterTransition() {
           }}
           className="text-center max-w-3xl px-8"
         >
-          <p className="text-2xl md:text-3xl text-[#c9a961] font-serif italic leading-relaxed">
+          <p className="text-2xl md:text-3xl text-[#c9a961] font-sans italic leading-relaxed">
             "Từ giá trị và trao đổi… xuất hiện một lực lượng lớn hơn — chính hệ thống."
           </p>
         </motion.div>
@@ -153,7 +153,7 @@ export default function ChapterTransition() {
         className="fixed inset-0 flex items-center justify-center pointer-events-none"
       >
         <div className="text-center max-w-4xl px-8">
-          <p className="text-xl md:text-2xl text-[#e8dcc8] font-serif leading-relaxed">
+          <p className="text-xl md:text-2xl text-[#e8dcc8] font-sans leading-relaxed">
             Khi hàng hóa lưu thông và giá trị tăng trưởng,
             <br />
             một cấu trúc mới xuất hiện — hệ thống chi phối tất cả.
@@ -206,10 +206,9 @@ export default function ChapterTransition() {
             viewport={{ once: true }}
           >
             <p
-              className="text-3xl md:text-4xl text-[#FFC000] font-serif italic mb-4"
+              className="text-3xl md:text-4xl text-[#FFC000] font-sans italic mb-4"
               style={{
                 textShadow: "0 2px 20px rgba(255, 192, 0, 0.6)",
-                fontFamily: "Georgia, 'Times New Roman', serif",
                 letterSpacing: "0.02em",
               }}
             >

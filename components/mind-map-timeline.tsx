@@ -94,7 +94,7 @@ const timelineData: TimelineNode[] = [
     icon: <Factory className="w-6 h-6" />,
     tags: ["Chu trình", "Vận động", "Tích lũy"],
     color: "#00FFFF",
-    imageUrl: "11.jpg",
+    imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7-XmNnm8VZ2FAON1dtrUGNulxpBZpkza.jpg",
   },
   {
     year: "Kết luận",
@@ -127,7 +127,7 @@ function TimelineNode({ node, index, isLeft }: { node: TimelineNode; index: numb
     >
       {/* Text Content Side */}
       <motion.div
-        className="w-full md:w-[calc(50%-2rem)] bg-gradient-to-br from-[#4a1a1a] to-[#2d0f0f] p-8 rounded-lg transition-all duration-500"
+        className="w-full md:w-[calc(50%-2rem)] bg-black p-8 rounded-lg transition-all duration-500"
         initial={{
           opacity: 0.4,
           x: isLeft ? -50 : 50,
@@ -164,8 +164,8 @@ function TimelineNode({ node, index, isLeft }: { node: TimelineNode; index: numb
         <motion.h3
           className="font-mono text-4xl font-bold mb-3"
           style={{
-            color: node.color === "#00FFFF" ? "#00FFFF" : "#FFC000",
-            textShadow: `0 0 20px ${node.color === "#00FFFF" ? "rgba(0, 255, 255, 0.5)" : "rgba(255, 192, 0, 0.5)"}`,
+            color: "#FFF0B4",
+            textShadow: `0 0 20px rgba(255, 240, 180, 0.3)`,
           }}
           initial={{ opacity: 0.5, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.5, y: 10 }}
@@ -176,7 +176,7 @@ function TimelineNode({ node, index, isLeft }: { node: TimelineNode; index: numb
 
         {/* Subtitle */}
         <motion.p
-          className="text-gray-300 text-base mb-5 font-semibold"
+          className="text-[#FFF0B4] text-base mb-5 font-semibold"
           initial={{ opacity: 0.5 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0.5 }}
           transition={{ duration: 0.4, delay: 0.3 }}
@@ -185,7 +185,7 @@ function TimelineNode({ node, index, isLeft }: { node: TimelineNode; index: numb
         </motion.p>
 
         <motion.p
-          className="text-gray-200 leading-relaxed mb-6 text-balance"
+          className="text-[#FFF0B4] leading-relaxed mb-6 text-balance"
           initial={{ opacity: 0.5 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0.5 }}
           transition={{ duration: 0.4, delay: 0.4 }}
@@ -203,7 +203,7 @@ function TimelineNode({ node, index, isLeft }: { node: TimelineNode; index: numb
           {node.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 text-xs rounded-full bg-[#8b2e2e]/30 border border-[#8b2e2e] text-gray-200 hover:bg-[#8b2e2e]/50 hover:border-white transition-all duration-300"
+              className="px-3 py-1 text-xs rounded-full bg-[#8b2e2e]/30 border border-[#8b2e2e] text-[#FFF0B4] hover:bg-[#8b2e2e]/50 hover:border-white transition-all duration-300"
             >
               {tag}
             </span>
@@ -290,8 +290,8 @@ export default function MindMapTimeline() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-mono text-5xl font-bold text-[#2c4a7c] mb-4">HÀNH TRÌNH KHÁI NIỆM</h2>
-          <p className="text-gray-600 text-lg mb-6">Từ nền tảng đến ứng dụng thực tiễn</p>
+          <h2 className="font-mono text-5xl font-bold text-[#FFF0B4] mb-4">HÀNH TRÌNH KHÁI NIỆM</h2>
+          <p className="text-[#FFF0B4] text-lg mb-6">Từ nền tảng đến ứng dụng thực tiễn</p>
           <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#c9a961] to-transparent mx-auto" />
         </motion.div>
 

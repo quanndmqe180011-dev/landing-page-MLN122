@@ -180,7 +180,7 @@ export default function Conclusion() {
               className="h-[2px] w-32 mx-auto mb-8 bg-gradient-to-r from-transparent via-[#c9a961] to-transparent"
             />
 
-            <p className="font-serif text-2xl md:text-3xl text-gray-200 italic mb-6 leading-relaxed">
+            <p className="font-sans text-2xl md:text-3xl text-gray-200 italic mb-6 leading-relaxed">
               "Các triết gia chỉ giải thích thế giới theo nhiều cách khác nhau; tuy nhiên, vấn đề là phải thay đổi nó."
             </p>
 
@@ -208,7 +208,15 @@ export default function Conclusion() {
 
           {/* Navigation buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="group relative px-8 py-4 font-mono font-bold text-lg overflow-hidden rounded-lg"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00FFFF] to-[#00FFFF]/80 transition-transform group-hover:scale-110" />
+              <span className="relative text-black flex items-center gap-2">↑ Về Đầu Trang</span>
+            </motion.button>
 
             <motion.a
               href="#"
@@ -216,6 +224,8 @@ export default function Conclusion() {
               whileTap={{ scale: 0.95 }}
               className="group relative px-8 py-4 font-mono font-bold text-lg overflow-hidden rounded-lg"
             >
+              <div className="absolute inset-0 bg-gradient-to-r from-[#c9a961] to-[#c9a961]/80 transition-transform group-hover:scale-110" />
+              <span className="relative text-black flex items-center gap-2">Chương Tiếp Theo →</span>
             </motion.a>
           </div>
         </motion.div>
